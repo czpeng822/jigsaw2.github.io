@@ -49,5 +49,4 @@ class Jigsaw{
 	    `;
 	    document.head.appendChild(style); // 将样式添加到文档的头部
 	  }
-
 }

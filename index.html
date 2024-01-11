@@ -6,12 +6,19 @@
 	<title>jigsaw game</title>
 </head>
 <body>
+
 <h1>jigsaw game</h1>
 <div class="image_container">
 </div>
-
 <div class="image_puzzle">
 </div>
-
-</body>	
+<script>
+	const myJigsaw = new Jigsaw();
+		// Set the number of pieces
+	myJigsaw.setJigsaw(16);
+	// Create images and add styles
+	myJigsaw.createImages();
+	myJigsaw.addStyles();
+</script>
+</body>
 </html>
