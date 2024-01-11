@@ -30,25 +30,6 @@ class Jigsaw{
     }
 	}
 
-	addStyles() {
-	    const style = document.createElement('style');
-	    style.textContent = `
-	      .image-container .image_puzzle  {
-	        display: grid;
-	        grid-template-columns: repeat(${this.row}, 200px ); /* 重复 row 次*/
-					grid-row-gap: 0;
-					width:  800px;
-					height: 800px;
-	      }
-	      .img {
-	        border: 1px solid black;
-	        width:  200px;
-	        height: 200px;
-	      }
-	    `;
-	    document.head.appendChild(style); // 将样式添加到文档的头部
-	  }
-
 	createcontainer(){
 		const image_puzzle = document.querySelector('.image_puzzle');
 		if (image_puzzle) {
@@ -66,4 +47,22 @@ class Jigsaw{
 			console.log("Image container not found.");
 		}
 	}
+
+	addStyles() {
+		    const style = document.createElement('style');
+		    style.textContent = `
+		      .image_container .image_puzzle {
+		        display: grid;
+		        grid-template-columns: repeat(${this.row}, 200px ); /* 重复 row 次*/
+						width:  800px;
+						height: 800px;
+		      }
+		      .img {
+		        border: 1px solid black;
+		        width:  200px;
+		        height: 200px;
+		      }
+		    `;
+		    document.head.appendChild(style); // 将样式添加到文档的头部
+		  }
 }

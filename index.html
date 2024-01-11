@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/index.css">
 	<title>jigsaw game</title>
 </head>
 <body>
@@ -10,17 +11,17 @@
 <h1>jigsaw game</h1>
 <div class="image_container">
 </div>
+<h1>jigsaw container</h1>
 <div class="image_puzzle">
 </div>
 <script src="jigsaw.js"></script>
 <script>
 	const myJigsaw = new Jigsaw();
-		// Set the number of pieces
 	myJigsaw.setJigsaw(16);
-	// Create images and add styles
 	myJigsaw.createImages();
 	myJigsaw.createcontainer();
 	myJigsaw.addStyles();
+
 </script>
 </body>
 </html>
