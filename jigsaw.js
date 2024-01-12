@@ -16,15 +16,25 @@ class Jigsaw{
 		this.picno=picno;
 	}
 
+	shuffleArray(array) {
+	 for (let i = array.length - 1; i > 0; i--) {
+		 const j = Math.floor(Math.random() * (i + 1));
+		 [array[i], array[j]] = [array[j], array[i]];
+	 }
+ }
+
 	createImages() {
 	  const container = document.querySelector('.image_container');
-		var choosepic= Math.ceil(Math.random() * this.picno);
+		var choosepic= Math.ceil(Math.random() * this.picno);    //随机选择图片
+		const imageArray = Array.from({ length: this.piecesnum }, (_, index) => index + 1);
+    this.shuffleArray(imageArray); // 使用 shuffleArray 方法对数组进行随机排序
+
 		if (container) {
       container.innerHTML = ''; // 清空容器中的内容
       for (let i = 1; i <= this.piecesnum; i++) {
         const img = document.createElement('img');
         img.id = `jigsaw${i}`;
-        img.src = `assets/puzzle${choosepic}/image${i}.jpeg`;
+        img.src = `assets/puzzle${choosepic}/image${imageArray[i - 1]}.jpeg`;
         img.className =`img`;
         img.alt = `image${i}`;
         img.draggable = true;
@@ -88,7 +98,7 @@ class Jigsaw{
 
 		}
 
-		drop(ev) {
+	drop(ev) {
 		    ev.preventDefault();
 		    var data = ev.dataTransfer.getData("Image");
 		    if (document.getElementById(data).src.includes("none.jpeg")) {
@@ -104,7 +114,7 @@ class Jigsaw{
 			    }, 50);
 		}}
 
-   check() {
+  check() {
 	     var jigsawall = document.querySelectorAll('.image_puzzle img');
 	     var completetag = true;
 	     jigsawall.forEach(function (jigsaw) {
