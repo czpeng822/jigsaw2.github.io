@@ -1,11 +1,5 @@
-body {background-color: lightblue;}
+body {background-color: lightblue;	}
+
 h1   {color: blue;
 	   text-align: center;   /* 水平居中 */
       }
-
-.jigsaw-diagram,
-.jigsaw-container {
-    display: block;
-		margin-left: auto;
-    margin-right: auto;
-}

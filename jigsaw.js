@@ -72,17 +72,22 @@ class Jigsaw{
 	addStyles() {
 		    const style = document.createElement('style');
 		    style.textContent = `
-		      .image_container .image_puzzle {
-		        display: grid;
-		        grid-template-columns: repeat(${this.row}, 200px ); /* 重复 row 次*/
-						width:  800px;
-						height: 800px;
-		      }
+				.image_container .image_puzzle {
+            display: grid
+            grid-template-columns: repeat(${this.row}, 200px)
+						grid-template-rows: repeat(${this.row}, 200px)
+            width: 200*${this.row}px;
+            height: 200*${this.row}px;
+        }
 		      .img {
 		        border: 1px solid black;
 		        width:  200px;
 		        height: 200px;
+						margin: 0px;
 		      }
+					.game {
+					    display: flex;
+					}
 		    `;
 		    document.head.appendChild(style); // 将样式添加到文档的头部
 		  }
