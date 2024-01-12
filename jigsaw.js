@@ -12,14 +12,19 @@ class Jigsaw{
 		}
 	}
 
+  setpicno(picno){
+		this.picno=picno;
+	}
+
 	createImages() {
 	  const container = document.querySelector('.image_container');
+		var choosepic= Math.ceil(Math.random() * this.picno);
 		if (container) {
       container.innerHTML = ''; // 清空容器中的内容
       for (let i = 1; i <= this.piecesnum; i++) {
         const img = document.createElement('img');
         img.id = `jigsaw${i}`;
-        img.src = `assets/puzzle01/image${i}.jpeg`;
+        img.src = `assets/puzzle${choosepic}/image${i}.jpeg`;
         img.className =`img`;
         img.alt = `image${i}`;
         img.draggable = true;
