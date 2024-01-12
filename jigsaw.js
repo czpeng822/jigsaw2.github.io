@@ -132,7 +132,6 @@ class Jigsaw{
 	         var machtag = true;
 	         jigsawall.forEach(function (jigsaw) {
 	             if (!jigsaw.src.includes(jigsaw.id)) {
-	                 console.log(jigsaw.src+"---"+jigsaw.id);
 	                 machtag = false;
 	             }
 	         });
