@@ -143,5 +143,16 @@ class Jigsaw{
 	     console.log("completetag:"+completetag);
 	     console.log("machtag:"+machtag);
 	 }
+}
 
+class Timer{
+	createtimer(){
+		const timer=document.getElementById('timer');
+		var s=1;
+		var timecount=setInterval(function(){
+		  timer.innerText=s++;
+		  if(s==120){
+		      alert("Times up. Game over!");
+		}},1000);
+	}
 }

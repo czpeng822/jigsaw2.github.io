@@ -7,7 +7,7 @@
 	<title>jigsaw game</title>
 </head>
 <body>
-
+<p>Timer: <span id="timer">0</span>S</p>
 <h1>jigsaw game</h1>
 
 <div class="game">
@@ -28,6 +28,8 @@
 	myJigsaw.createImages();
 	myJigsaw.createcontainer();
 	myJigsaw.addStyles();
+	const mytimer=new Timer();
+	mytimer.createtimer();
 </script>
 </body>
 </html>
