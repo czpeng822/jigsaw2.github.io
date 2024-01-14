@@ -1,7 +1,30 @@
+class Timer{
+	constructor() {
+    this.s = 0;
+		this.timecount = 0
+  };
+
+	createtimer(){
+		const timer=document.getElementById('timer');
+		var s=1;
+		this.timecount=setInterval(()=>{
+		  timer.innerText=s++;
+		  if(s==121){
+		      alert("Times up. Game over!");
+					this.pausetimer();
+		}},1000);
+	}
+
+	pausetimer() {
+    clearInterval(this.timecount);
+  }
+
+}
+
 class Jigsaw{
 	constructor(){
 		this.piecesnum = 1;
-		this.row = 1
+		this.row = 1;
 	}
 
 	setJigsaw(piecesnum){
@@ -138,21 +161,10 @@ class Jigsaw{
 
 	         if (machtag) {
 	             alert("Congratulations! You win!");
+							 this.pausetimer.bind(Timer);
 	         }
 	     }
 	     console.log("completetag:"+completetag);
 	     console.log("machtag:"+machtag);
 	 }
-}
-
-class Timer{
-	createtimer(){
-		const timer=document.getElementById('timer');
-		var s=1;
-		var timecount=setInterval(function(){
-		  timer.innerText=s++;
-		  if(s==120){
-		      alert("Times up. Game over!");
-		}},1000);
-	}
 }
