@@ -3,3 +3,20 @@ body {background-color:lightblue;	}
 h1   {color: blue;
 	   text-align: center;   /* 水平居中 */
       }
+
+.puzzle_frame {
+			  display: grid;
+			  grid-template-columns: repeat(2, 200px);
+				grid-template-rows: repeat(2, 200px);
+			  width: 800px;
+			  height: 800px;
+			}
+.img {
+				border: 1px solid black;
+				width:  200px;
+				height: 200px;
+				margin: 0px;
+		  }
+.game {
+			display: flex;
+				}

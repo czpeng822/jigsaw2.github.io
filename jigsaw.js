@@ -1,7 +1,7 @@
 class Jigsaw{
 	constructor(){
-		this.piecesnum = 1;
-		this.row = 1;
+		this.piecesnum = null;
+		this.row = null;
 	}
 
 	setJigsaw(piecesnum){
@@ -70,27 +70,12 @@ class Jigsaw{
 	}
 
 	addStyles() {
-		    const style = document.createElement('style');
-		    style.textContent = `
-				.puzzle_frame {
-            display: grid;
-            grid-template-columns: repeat(${this.row}, 200px);
-						grid-template-rows: repeat(${this.row}, 200px);
-            width: 200*${this.row}px;
-            height: 200*${this.row}px;
-        }
-		      .img {
-		        border: 1px solid black;
-		        width:  200px;
-		        height: 200px;
-						margin: 0px;
-		      }
-					.game {
-					    display: flex;
-					}
-		    `;
-		    document.head.appendChild(style); // 将样式添加到文档的头部
-		  }
+	  const image_puzzle = document.querySelector('.puzzle_frame');
+	  image_puzzle.style.gridTemplateColumns = `repeat(${this.row}, 200px)`;
+	  image_puzzle.style.gridTemplateRows = `repeat(${this.row}, 200px)`;
+	  image_puzzle.style.width = `200*${this.row}px;`;
+	  image_puzzle.style.height = `200*${this.row}px;`;
+	}
 
 	allowDrop(ev)
 		{
