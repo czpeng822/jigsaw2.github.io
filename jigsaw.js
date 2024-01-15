@@ -1,18 +1,22 @@
 class Timer{
 	constructor() {
-    this.s = 0;
 		this.timecount = 0
   };
 
 	createtimer(){
-		const timer=document.getElementById('timer');
-		var s=1;
+		const timer = document.getElementById('timer');
+		var s=0;
 		this.timecount=setInterval(()=>{
-		  timer.innerText=s++;
-		  if(s==121){
-		      alert("Times up. Game over!");
-					this.pausetimer();
-		}},1000);
+		  timer.innerText=s;
+		  if(s==120){
+				this.pausetimer();
+				setTimeout(function () {
+				alert("Times up. Game over!");
+				},0)
+			} else{
+			s++;
+			}
+		},1000);
 	}
 
 	pausetimer() {
