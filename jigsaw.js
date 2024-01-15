@@ -72,10 +72,10 @@ class Jigsaw{
 	addStyles() {
 		    const style = document.createElement('style');
 		    style.textContent = `
-				.image_container .image_puzzle {
-            display: grid
-            grid-template-columns: repeat(${this.row}, 200px)
-						grid-template-rows: repeat(${this.row}, 200px)
+				.puzzle_frame {
+            display: grid;
+            grid-template-columns: repeat(${this.row}, 200px);
+						grid-template-rows: repeat(${this.row}, 200px);
             width: 200*${this.row}px;
             height: 200*${this.row}px;
         }
