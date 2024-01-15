@@ -5,8 +5,17 @@ class Timer{
 
 	createtimer(){
 		const timer = document.getElementById('timer');
-		var s=0;
-		this.timecount=setInterval(()=>{
+		this.#addseconds();
+
+	}
+
+	pausetimer() {
+    clearInterval(this.timecount);
+  }
+
+	#addseconds(){
+			var s=0;
+		  this.timecount=setInterval(()=>{
 		  timer.innerText=s;
 		  if(s==120){
 				this.pausetimer();
@@ -18,8 +27,4 @@ class Timer{
 			}
 		},1000);
 	}
-
-	pausetimer() {
-    clearInterval(this.timecount);
-  }
 }
