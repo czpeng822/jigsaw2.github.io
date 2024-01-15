@@ -23,8 +23,8 @@
 <script src="jigsaw.js"></script>
 <script src="Timer.js"></script>
 <script>
-	const mytimer=new Timer();
-	const myJigsaw = new Jigsaw();
+	const mytimer = new Timer();
+	const myJigsaw = new Jigsaw(mytimer);
 	myJigsaw.setJigsaw(16);
 	myJigsaw.setpicno(10);
 	myJigsaw.createImages();

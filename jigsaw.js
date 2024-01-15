@@ -1,7 +1,8 @@
 class Jigsaw{
-	constructor(){
+	constructor(timer){
 		this.piecesnum = null;
 		this.row = null;
+		this.timer=timer;
 	}
 
 	setJigsaw(piecesnum){
@@ -70,11 +71,13 @@ class Jigsaw{
 	}
 
 	addStyles() {
-	  const image_puzzle = document.querySelector('.puzzle_frame');
-	  image_puzzle.style.gridTemplateColumns = `repeat(${this.row}, 200px)`;
-	  image_puzzle.style.gridTemplateRows = `repeat(${this.row}, 200px)`;
-	  image_puzzle.style.width = `${this.row * 200}px`;
-	  image_puzzle.style.height = `${this.row * 200}px`;
+	  const image_puzzles = document.querySelectorAll('.puzzle_frame');
+	  image_puzzles.forEach(image_puzzle => {
+	    image_puzzle.style.gridTemplateColumns = `repeat(${this.row}, 200px)`;
+	    image_puzzle.style.gridTemplateRows = `repeat(${this.row}, 200px)`;
+	    image_puzzle.style.width = `${this.row * 200}px`;
+	    image_puzzle.style.height = `${this.row * 200}px`;
+	  });
 	}
 
 	allowDrop(ev)
@@ -107,6 +110,8 @@ class Jigsaw{
   check() {
 	     var jigsawall = document.querySelectorAll('.image_puzzle img');
 	     var completetag = true;
+			 var pausetimerfunction = this.timer;
+;
 	     jigsawall.forEach(function (jigsaw) {
 	         if (jigsaw.src.includes('none.jpeg')) {
 	             completetag = false;
@@ -123,7 +128,7 @@ class Jigsaw{
 
 	         if (machtag) {
 	             alert("Congratulations! You win!");
-							 this.pausetimer.bind(Timer);
+							 pausetimerfunction.pausetimer()
 	         }
 	     }
 	     console.log("completetag:"+completetag);

@@ -7,6 +7,7 @@ h1   {color: blue;
 .puzzle_frame {
 			  display: grid;
 			}
+			
 .img {
 				border: 1px solid black;
 				width:  200px;
