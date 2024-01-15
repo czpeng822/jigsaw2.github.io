@@ -73,8 +73,8 @@ class Jigsaw{
 	  const image_puzzle = document.querySelector('.puzzle_frame');
 	  image_puzzle.style.gridTemplateColumns = `repeat(${this.row}, 200px)`;
 	  image_puzzle.style.gridTemplateRows = `repeat(${this.row}, 200px)`;
-	  image_puzzle.style.width = `200*${this.row}px;`;
-	  image_puzzle.style.height = `200*${this.row}px;`;
+	  image_puzzle.style.width = `${this.row * 200}px`;
+	  image_puzzle.style.height = `${this.row * 200}px`;
 	}
 
 	allowDrop(ev)

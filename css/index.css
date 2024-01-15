@@ -6,10 +6,6 @@ h1   {color: blue;
 
 .puzzle_frame {
 			  display: grid;
-			  grid-template-columns: repeat(2, 200px);
-				grid-template-rows: repeat(2, 200px);
-			  width: 800px;
-			  height: 800px;
 			}
 .img {
 				border: 1px solid black;
