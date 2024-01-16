@@ -24,50 +24,41 @@ class Jigsaw{
 	 }
  }
 
+  #createImagesOrContainer(imagesorcontainer,imagesource){
+		if (imagesorcontainer) {
+		 imagesorcontainer.innerHTML = '';
+		 const imageArray = Array.from({ length: this.piecesnum }, (_, index) => index + 1);
+     this.shuffleArray(imageArray); // 使用 shuffleArray 方法对数组进行随机排序
+			for (let i = 1; i <= this.piecesnum; i++) {
+				const img = document.createElement('img');
+				if (imagesorcontainer == document.querySelector('.image_puzzle')){
+				img.id = `image${i}`;
+				img.src = `${imagesource}.jpeg`;
+			}else {
+				img.id = `jigsaw${i}`;
+				img.src = `${imagesource}${imageArray[i - 1]}.jpeg`;
+			};
+				img.className =`img`;
+				img.draggable = true;
+				img.ondragstart = this.drag;
+				img.ondrop = this.drop.bind(this);
+				img.ondragover = this.allowDrop;
+				imagesorcontainer.appendChild(img); // 将图片添加到容器中
+			}
+		} else {
+			console.log("Image or container not found.");
+		}
+	}
+
 	createImages() {
 	  const container = document.querySelector('.image_container');
 		var choosepic= Math.ceil(Math.random() * this.picno);    //随机选择图片
-		const imageArray = Array.from({ length: this.piecesnum }, (_, index) => index + 1);
-    this.shuffleArray(imageArray); // 使用 shuffleArray 方法对数组进行随机排序
-
-		if (container) {
-      container.innerHTML = ''; // 清空容器中的内容
-      for (let i = 1; i <= this.piecesnum; i++) {
-        const img = document.createElement('img');
-        img.id = `jigsaw${i}`;
-        img.src = `assets/puzzle${choosepic}/image${imageArray[i - 1]}.jpeg`;
-        img.className =`img`;
-        img.alt = `image${i}`;
-        img.draggable = true;
-				img.ondragstart = this.drag.bind(this);
-				img.ondrop = this.drop.bind(this);
-				img.ondragover = this.allowDrop.bind(this);
-        container.appendChild(img); // 将图片添加到容器中
-      }
-    } else {
-      console.log("Image container not found.");
-    }
+    this.#createImagesOrContainer(container, `assets/puzzle${choosepic}/image`);
 	}
 
 	createcontainer(){
 		const image_puzzle = document.querySelector('.image_puzzle');
-		if (image_puzzle) {
-			image_puzzle.innerHTML = ''; // 清空容器中的内容
-			for (let i = 1; i <= this.piecesnum; i++) {
-				const img = document.createElement('img');
-				img.id = `image${i}`;
-				img.src = `assets/none.jpeg`;
-				img.className =`img`;
-				img.alt = `image${i}`;
-				img.draggable = true;
-				img.ondragstart = this.drag.bind(this);
-				img.ondrop = this.drop.bind(this);
-				img.ondragover = this.allowDrop.bind(this);
-				image_puzzle.appendChild(img); // 将图片添加到容器中
-			}
-		} else {
-			console.log("Image container not found.");
-		}
+		this.#createImagesOrContainer(image_puzzle, 'assets/none');
 	}
 
 	addStyles() {
