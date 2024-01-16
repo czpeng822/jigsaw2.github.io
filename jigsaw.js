@@ -102,7 +102,7 @@ class Jigsaw{
 	     var jigsawall = document.querySelectorAll('.image_puzzle img');
 	     var completetag = true;
 			 var pausetimerfunction = this.timer;
-;
+
 	     jigsawall.forEach(function (jigsaw) {
 	         if (jigsaw.src.includes('none.jpeg')) {
 	             completetag = false;
@@ -118,8 +118,10 @@ class Jigsaw{
 	         });
 
 	         if (machtag) {
-	             alert("Congratulations! You win!");
-							 pausetimerfunction.pausetimer()
+						 pausetimerfunction.pausetimer();
+						 setTimeout(function () {
+							 alert("Congratulations! You win! You have spend "+(pausetimerfunction.s-1)+" seconds for it.");
+					 },0);
 	         }
 	     }
 	     console.log("completetag:"+completetag);
