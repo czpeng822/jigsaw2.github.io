@@ -127,4 +127,10 @@ class Jigsaw{
 	     console.log("completetag:"+completetag);
 	     console.log("machtag:"+machtag);
 	 }
+
+	startJigsaw(){
+		this.createImages();
+		this.createcontainer();
+		this.addStyles();
+	}
 }

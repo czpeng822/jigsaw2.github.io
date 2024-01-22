@@ -27,4 +27,9 @@ class Timer{
 			}
 		},1000);
 	}
+
+	startTimer()
+	{
+		this.createtimer();
+	}
 }
