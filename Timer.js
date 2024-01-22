@@ -1,7 +1,7 @@
 class Timer{
 	constructor() {
 		this.timecount = 0;
-		this.s = 1;    // Transfer s after 1 sescond.
+		this.s = 0;    // Transfer s after 1 sescond.
   };
 
 	createtimer(){
@@ -16,7 +16,6 @@ class Timer{
 
 	#addseconds(){
 		  this.timecount = setInterval(()=>{
-		  timer.innerText = this.s;
 		  if(this.s == 120){
 				this.pausetimer();
 				setTimeout(function () {
@@ -24,6 +23,7 @@ class Timer{
 				},0)
 			} else{
 			this.s++;
+			timer.innerText = this.s;
 			}
 		},1000);
 	}

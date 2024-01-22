@@ -120,7 +120,7 @@ class Jigsaw{
 	         if (machtag) {
 						 pausetimerfunction.pausetimer();
 						 setTimeout(function () {
-							 alert("Congratulations! You win! You have spend "+(pausetimerfunction.s-1)+" seconds for it.");
+							 alert("Congratulations! You win! You have spend "+(pausetimerfunction.s)+" seconds for it.");
 					 },0);
 	         }
 	     }
